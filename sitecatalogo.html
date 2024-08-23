@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Filmow - filmes e séries </title>
+    <style>
+        
+        /* Estilos embutidos para personalização direta no HTML */
+
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #f4f4f4;
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiTll5lTpXXDLP_PMwyoOJ-gdCo4gxDwNOiQ&s);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+        }
+    
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"], input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+        }
+
+        .error-message {
+            color: #d9534f;
+            font-size: 0.875rem;
+            display: none;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #335;
+            border: none;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+    .info-text p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: #333;
+        }
+
+        .info-text {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Assine a Filmow! </h1>
+            <p>Receba atualizações e ofertas especiais pelo app.</p>
+        </div>
+        <form action="#" method="post" id="subscription-form">
+            <div class="form-group">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" placeholder="Seu nome" required>
+                <span class="error-message" id="name-error">Por favor, insira seu nome.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+                <span class="error-message" id="email-error">Por favor, insira um e-mail válido.</span>
+            </div>
+           
+            <div class="info-text">
+                <p>Não é cadastrado? <a href="#">Clique aqui</a></p>
+            </div>
+           
+            <button type="submit">Assinar</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('subscription-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let hasError = false;
+            
+            // Validação do Nome
+            const name = document.getElementById('name');
+            const nameError = document.getElementById('name-error');
+            if (name.value.trim() === '') {
+                nameError.style.display = 'block';
+                hasError = true;
+            } else {
+                nameError.style.display = 'none';
+            }
+
+            // Validação do E-mail
+            const email = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            if (!email.value.includes('@')) {
+                emailError.style.display = 'block';
+                hasError = true;
+            } else {
+                emailError.style.display = 'none';
+            }
+
+            if (!hasError) {
+                // Aqui você pode adicionar a lógica para enviar o formulário
+                alert('Formulário enviado com sucesso!');
+            }
+        });
+    </script>
+</body>
+</html>
